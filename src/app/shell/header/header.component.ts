@@ -10,6 +10,7 @@ import { I18nModule } from '@app/i18n';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   imports: [NgbCollapseModule, I18nModule],
+  standalone: true,
 })
 export class HeaderComponent implements OnInit {
   menuHidden = true;

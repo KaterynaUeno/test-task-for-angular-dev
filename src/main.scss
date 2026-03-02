@@ -1,17 +1,17 @@
-/*
- * Entry point of global application style.
- * Component-specific style should not go here and be included directly as part of the components.
- */
+// /*
+//  * Entry point of global application style.
+//  * Component-specific style should not go here and be included directly as part of the components.
+//  */
+// Use your theme variables globally
 
-// Theme variables, must be included before the libraries to allow overriding defaults
-@import "theme/theme-variables";
+@use "bootstrap/scss/functions";
+
+@use "theme/theme-variables" as *;
+
+@use "bootstrap/scss/bootstrap" as *;
 
 // 3rd party libraries
-@import "bootstrap/scss/bootstrap";
-@import "@fortawesome/fontawesome-free/scss/fontawesome.scss";
-@import "@fortawesome/fontawesome-free/scss/brands.scss";
-@import "@fortawesome/fontawesome-free/scss/regular.scss";
-@import "@fortawesome/fontawesome-free/scss/solid.scss";
-
-// Theme customization
-@import "theme/theme";
+@use "@fortawesome/fontawesome-free/scss/fontawesome";
+@use "@fortawesome/fontawesome-free/scss/brands";
+@use "@fortawesome/fontawesome-free/scss/regular";
+@use "@fortawesome/fontawesome-free/scss/solid";
