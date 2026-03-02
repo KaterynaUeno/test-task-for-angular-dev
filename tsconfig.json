@@ -18,12 +18,12 @@
     "lib": ["es2018", "dom"],
     "baseUrl": "./",
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@core": ["src/app/@core"],
-      "@core/*": ["src/app/@core/*"],
-      "@shared": ["src/app/@shared"],
-      "@shared/*": ["src/app/@shared/*"],
-      "@env/*": ["src/environments/*"]
+      "@app/*": ["apps/test-task-for-angular-dev/src/app/*"],
+      "@core": ["apps/test-task-for-angular-dev/src/app/@core"],
+      "@core/*": ["apps/test-task-for-angular-dev/src/app/@core/*"],
+      "@shared": ["apps/test-task-for-angular-dev/src/app/@shared"],
+      "@shared/*": ["apps/test-task-for-angular-dev/src/app/@shared/*"],
+      "@env/*": ["apps/test-task-for-angular-dev/src/environments/*"]
     },
     "useDefineForClassFields": false
   },
