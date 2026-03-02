@@ -3,13 +3,14 @@ import { Router } from '@angular/router';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AuthenticationService, CredentialsService } from '@app/auth';
+import { I18nModule } from '@app/i18n';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [NgbCollapseModule],
+  imports: [NgbCollapseModule, I18nModule],
 })
 export class HeaderComponent implements OnInit {
   menuHidden = true;
