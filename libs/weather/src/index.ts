@@ -1,1 +1,1 @@
-export * from './lib/weather/weather';
+export * from '../ui/weather';

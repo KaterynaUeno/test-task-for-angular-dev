@@ -18,7 +18,8 @@
       "@shared": ["apps/test-task-for-angular-dev/src/app/@shared"],
       "@shared/*": ["apps/test-task-for-angular-dev/src/app/@shared/*"],
       "@env/*": ["apps/test-task-for-angular-dev/src/environments/*"],
-      "weather": ["libs/weather/src/index.ts"]
+      "@weather/state": ["libs/weather/state/index.ts"],
+      "@weather/ui": ["libs/weather/ui/index.ts"]
     }
   }
 }
