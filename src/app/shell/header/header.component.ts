@@ -9,7 +9,6 @@ import { I18nModule } from '@app/i18n';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  standalone: true,
   imports: [NgbCollapseModule, I18nModule],
 })
 export class HeaderComponent implements OnInit {
