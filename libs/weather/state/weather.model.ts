@@ -7,7 +7,7 @@ export interface Weather {
 }
 
 export interface WeatherState {
-  weather: Weather | null;
+  currentWeather: Weather | null;
   loading: boolean;
   error: string | null;
   city: string;
