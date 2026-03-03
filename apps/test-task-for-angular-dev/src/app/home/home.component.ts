@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
 import { QuoteService } from './quote.service';
+import { WeatherComponent } from '@weather/ui';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  standalone: false,
+  standalone: true,
+  imports: [WeatherComponent],
 })
 export class HomeComponent implements OnInit {
   quote: string | undefined;
@@ -22,7 +24,7 @@ export class HomeComponent implements OnInit {
       .pipe(
         finalize(() => {
           this.isLoading = false;
-        })
+        }),
       )
       .subscribe((quote: string) => {
         this.quote = quote;
