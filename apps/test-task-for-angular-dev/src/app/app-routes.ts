@@ -6,6 +6,10 @@ export const appRoutes: Routes = [
     loadComponent: () => import('./home/home.component').then((m) => m.HomeComponent),
   },
   {
+    path: 'weather',
+    loadComponent: () => import('@weather/ui').then((m) => m.WeatherComponent),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',
