@@ -6,4 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './weather.html',
   styleUrl: './weather.scss',
 })
-export class Weather {}
+export class WeatherComponent {}
