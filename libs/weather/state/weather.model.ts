@@ -1,13 +1,19 @@
-export interface Weather {
-  city: string;
+export interface CurrentWeather {
   temperature: number;
-  description: string;
   windspeed: number;
   time: string;
+  weathercode: number;
+}
+
+export interface Weather {
+  current_weather: CurrentWeather;
+  latitude: number;
+  longitude: number;
+  timezone: string;
 }
 
 export interface WeatherState {
-  currentWeather: Weather | null;
+  currentWeatherState: Weather | null;
   loading: boolean;
   error: string | null;
   city: string;

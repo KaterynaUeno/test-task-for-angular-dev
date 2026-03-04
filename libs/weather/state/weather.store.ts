@@ -10,7 +10,7 @@ export class WeatherSignalStore {
 
   //defult state
   state = signal<WeatherState>({
-    currentWeather: null,
+    currentWeatherState: null,
     loading: false,
     error: null,
     city: '',
@@ -19,7 +19,7 @@ export class WeatherSignalStore {
   });
 
   //selectors
-  currentWeather = computed(() => this.state().currentWeather);
+  currentWeather = computed(() => this.state().currentWeatherState);
   loading = computed(() => this.state().loading);
   error = computed(() => this.state().error);
   city = computed(() => this.state().city);
@@ -45,7 +45,9 @@ export class WeatherSignalStore {
   fetchWeather(latitude: number, longitude: number) {
     this.state.update((state) => ({ ...state, loading: true, error: null, latitude, longitude }));
     this.weatherService.getCurrentWeather(latitude, longitude).subscribe({
-      next: (weather) => this.state.update((state) => ({ ...state, currentWeather: weather, loading: false })),
+      next: (weather) => {
+        this.state.update((state) => ({ ...state, currentWeatherState: weather, loading: false }));
+      },
       error: (error) => this.state.update((state) => ({ ...state, error: error.message, loading: false })),
     });
   }
