@@ -1,15 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { Router, RouterModule } from '@angular/router';
+import { NgbCollapseModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AuthenticationService, CredentialsService } from '@app/auth';
-import { I18nModule } from '@app/i18n';
+import { LanguageSelectorComponent } from '@app/i18n';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  imports: [NgbCollapseModule, I18nModule],
+  imports: [
+    NgbCollapseModule,
+    LanguageSelectorComponent,
+    RouterModule,
+    NgbCollapseModule,
+    NgbDropdownModule,
+    TranslateModule,
+  ],
   standalone: true,
 })
 export class HeaderComponent implements OnInit {
@@ -18,7 +26,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
-    private credentialsService: CredentialsService
+    private credentialsService: CredentialsService,
   ) {}
 
   ngOnInit() {}

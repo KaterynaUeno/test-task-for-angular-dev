@@ -1,12 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { I18nService } from './i18n.service';
+import { NgClass } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-language-selector',
   templateUrl: './language-selector.component.html',
   styleUrls: ['./language-selector.component.scss'],
-  standalone: false,
+  standalone: true,
+  imports: [NgClass, TranslateModule, NgbDropdownModule],
 })
 export class LanguageSelectorComponent implements OnInit {
   @Input() inNavbar = false;
