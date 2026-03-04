@@ -6,6 +6,10 @@ import { finalize } from 'rxjs/operators';
 import { environment } from '@env/environment';
 import { Logger, UntilDestroy, untilDestroyed } from '@core';
 import { AuthenticationService } from './authentication.service';
+import { LanguageSelectorComponent } from '@app/i18n';
+import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const log = new Logger('Login');
 
@@ -14,7 +18,8 @@ const log = new Logger('Login');
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  standalone: false,
+  standalone: true,
+  imports: [LanguageSelectorComponent, CommonModule, TranslateModule, ReactiveFormsModule],
 })
 export class LoginComponent implements OnInit {
   version: string | null = environment.version;
@@ -26,7 +31,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private formBuilder: UntypedFormBuilder,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
   ) {
     this.createForm();
   }
@@ -42,7 +47,7 @@ export class LoginComponent implements OnInit {
           this.loginForm.markAsPristine();
           this.isLoading = false;
         }),
-        untilDestroyed(this)
+        untilDestroyed(this),
       )
       .subscribe(
         (credentials) => {
@@ -52,7 +57,7 @@ export class LoginComponent implements OnInit {
         (error) => {
           log.debug(`Login error: ${error}`);
           this.error = error;
-        }
+        },
       );
   }
 
