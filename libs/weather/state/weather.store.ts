@@ -27,35 +27,26 @@ export class WeatherSignalStore {
   longitude = computed(() => this.state().longitude);
 
   //actions
-  fetchWeather(latitude: number, longitude: number) {
-    this.state.update((state) => {
-      return {
-        ...state,
-        loading: true,
-        error: null,
-        latitude,
-        longitude,
-      };
+  searchByCity(city: string) {
+    this.state.update((state) => ({ ...state, loading: true, error: null, city }));
+    this.weatherService.searchCity(city).subscribe({
+      next: (response) => {
+        const result = response.results?.[0];
+        if (!result) {
+          this.state.update((state) => ({ ...state, loading: false, error: 'City not found' }));
+          return;
+        }
+        this.fetchWeather(result.latitude, result.longitude);
+      },
+      error: (error) => this.state.update((state) => ({ ...state, loading: false, error: error.message })),
     });
+  }
+
+  fetchWeather(latitude: number, longitude: number) {
+    this.state.update((state) => ({ ...state, loading: true, error: null, latitude, longitude }));
     this.weatherService.getCurrentWeather(latitude, longitude).subscribe({
-      next: (weather) => {
-        this.state.update((state) => {
-          return {
-            ...state,
-            currentWeather: weather,
-            loading: false,
-          };
-        });
-      },
-      error: (err) => {
-        this.state.update((state) => {
-          return {
-            ...state,
-            error: err.message,
-            loading: false,
-          };
-        });
-      },
+      next: (weather) => this.state.update((state) => ({ ...state, currentWeather: weather, loading: false })),
+      error: (error) => this.state.update((state) => ({ ...state, error: error.message, loading: false })),
     });
   }
 }

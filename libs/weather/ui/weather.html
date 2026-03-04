@@ -1,1 +1,12 @@
-<p>Weather works!</p>
+<div class="weather-container">
+  <h2>Weather Today</h2>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search city..." [ngModel]="searchInput()" />
+    <button>Search</button>
+  </div>
+
+  @if (weatherStore.loading()) {
+  <div class="loading">Loading weather data...</div>
+  }
+</div>

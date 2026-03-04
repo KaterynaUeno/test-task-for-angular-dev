@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
 
 import { QuoteService } from './quote.service';
-import { WeatherComponent } from '@weather/ui';
 import { LoaderComponent } from '@app/@shared';
 
 @Component({
@@ -10,7 +9,7 @@ import { LoaderComponent } from '@app/@shared';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [WeatherComponent, LoaderComponent],
+  imports: [LoaderComponent],
 })
 export class HomeComponent implements OnInit {
   quote: string | undefined;
