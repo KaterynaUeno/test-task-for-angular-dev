@@ -3,13 +3,14 @@ import { finalize } from 'rxjs/operators';
 
 import { QuoteService } from './quote.service';
 import { LoaderComponent } from '@app/@shared';
+import { WeatherComponent } from '@weather/ui';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [LoaderComponent],
+  imports: [LoaderComponent, WeatherComponent],
 })
 export class HomeComponent implements OnInit {
   quote: string | undefined;

@@ -1,0 +1,23 @@
+<div class="block-builder">
+  @for (block of blocks(); track block.id; let i = $index) {
+  <div class="block">
+    <div class="block-controls">
+      <button class="btn-icon" (click)="moveUp(i)" [disabled]="i === 0" title="Move up">↑</button>
+      <button class="btn-icon" (click)="moveDown(i)" [disabled]="i === blocks().length - 1" title="Move down">↓</button>
+    </div>
+
+    <div class="block-content">
+      <select [ngModel]="block.selectedKey" (ngModelChange)="updateKey(block.id, $event)">
+        @for (key of flatKeys(); track key) {
+        <option [value]="key">{{ key }}</option>
+        }
+      </select>
+      <span class="block-value">{{ getValue(block.selectedKey) }}</span>
+    </div>
+
+    <button class="btn-delete" (click)="removeBlock(block.id)">✕</button>
+  </div>
+  }
+
+  <button class="btn-add" (click)="addBlock()">+ Add Block</button>
+</div>
