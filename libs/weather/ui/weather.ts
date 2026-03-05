@@ -18,7 +18,6 @@ export class WeatherComponent {
   search() {
     const query = this.searchInput();
     if (!query.trim()) return;
-    console.log('Searching for city:', query);
     this.weatherStore.searchByCity(query);
   }
 
