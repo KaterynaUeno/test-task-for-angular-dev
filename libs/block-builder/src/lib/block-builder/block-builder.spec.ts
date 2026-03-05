@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BlockBuilder } from './block-builder';
+import { BlockBuilderComponent } from '@block/builder';
 
 describe('BlockBuilder', () => {
-  let component: BlockBuilder;
-  let fixture: ComponentFixture<BlockBuilder>;
+  let component: BlockBuilderComponent;
+  let fixture: ComponentFixture<BlockBuilderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BlockBuilder],
+      imports: [BlockBuilderComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(BlockBuilder);
+    fixture = TestBed.createComponent(BlockBuilderComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

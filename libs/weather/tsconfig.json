@@ -26,6 +26,9 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "../block-builder/tsconfig.lib.json"
     }
   ]
 }

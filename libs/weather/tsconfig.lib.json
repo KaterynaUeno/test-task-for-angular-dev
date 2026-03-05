@@ -5,6 +5,11 @@
     "declaration": true,
     "declarationMap": true,
     "inlineSources": true,
+    "sourceMap": true,
+    "baseUrl": "../../",
+    "paths": {
+      "@block/builder": ["libs/block-builder/src/index.ts"]
+    },
     "types": []
   },
   "include": ["**/*.ts"],

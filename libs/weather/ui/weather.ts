@@ -2,7 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { WeatherSignalStore } from '../state';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { BlockBuilderComponent } from '../../block-builder/src';
+import { BlockBuilderComponent } from '@block/builder';
 
 @Component({
   selector: 'app-weather',
